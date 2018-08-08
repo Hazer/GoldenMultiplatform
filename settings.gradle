@@ -1,0 +1,45 @@
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "kotlin-platform-common") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+
+            if (requested.id.id == "kotlin-platform-jvm") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+
+            if (requested.id.id == "kotlin-platform-js") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+
+            if (requested.id.id == "kotlin-platform-android") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+
+            if (requested.id.id == "kotlin-platform-native") {
+                useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            url 'http://dl.bintray.com/kotlin/kotlin-eap'
+        }
+
+        google()
+        jcenter()
+
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+}
+rootProject.name = 'golden-kotlin'
+
+enableFeaturePreview('GRADLE_METADATA')
+
+include 'golden-common', 'golden-kotlin-jvm', 'golden-kotlin-js',
+        'golden-android-common', 'golden-android',
+        'golden-ios-common'
